@@ -182,5 +182,36 @@ int main() {
                     cout << "Daftar buku kosong." << endl;
                 }
                 break;
+             case 4:
+                if (jumlahBuku > 0) {
+                    tampilkanDaftarBuku(daftarBuku, jumlahBuku);
+                    cout << "Masukkan ID buku yang ingin dihapus: ";
+                    int idHapus;
+                    cin >> idHapus;
 
+                    if (idHapus >= 1 && idHapus <= jumlahBuku) {
+                        // Menghapus buku dengan menggeser elemen array
+                        for (int i = idHapus - 1; i < jumlahBuku - 1; ++i) {
+                            daftarBuku[i] = daftarBuku[i + 1];
+                        }
+                        jumlahBuku--;
+
+                        cout << "Buku berhasil dihapus." << endl;
+                    } else {
+                        cout << "ID buku tidak valid." << endl;
+                    }
+                } else {
+                    cout << "Daftar buku kosong." << endl;
+                }
+                break;
+            case 5:
+                cout << "Keluar dari program." << endl;
+                break;
+            default:
+                cout << "Pilihan tidak valid. Silakan pilih lagi." << endl;
+        }
+    } while (pilihan != 5);
+
+    return 0;
+}
 
