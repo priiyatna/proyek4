@@ -146,5 +146,41 @@ int main() {
                     cout << "Maaf, batas maksimum jumlah buku telah tercapai." << endl;
                 }
                 break;
+            case 2:
+                tampilkanDaftarBuku(daftarBuku, jumlahBuku);
+                break;
+            case 3:
+                if (jumlahBuku > 0) {
+                    tampilkanDaftarBuku(daftarBuku, jumlahBuku);
+                    cout << "Masukkan ID buku yang ingin diupdate: ";
+                    int idUpdate;
+                    cin >> idUpdate;
+
+                    if (idUpdate >= 1 && idUpdate <= jumlahBuku) {
+                        cout << "\nMasukkan informasi baru untuk buku:" << endl;
+                        cout << "Judul: ";
+                        cin.ignore();
+                        getline(cin, daftarBuku[idUpdate - 1].judul);
+                        cout << "Penulis: ";
+                        getline(cin, daftarBuku[idUpdate - 1].penulis);
+                        cout << "penerbit: ";
+                        getline(cin, daftarBuku[idUpdate - 1].penerbit);
+                        cout << "jumlah halaman: ";
+                        getline(cin, daftarBuku[idUpdate - 1].jumlahalaman);
+                        cout << "jenis buku ";
+                        getline(cin, daftarBuku[idUpdate - 1].jenisbuku);
+                        cout << "ISBN: ";
+                        getline(cin, daftarBuku[idUpdate - 1].isbn);
+                        cout << "Tahun Terbit: ";
+                        cin >> daftarBuku[idUpdate - 1].tahunTerbit;
+
+                        cout << "Informasi buku berhasil diupdate." << endl;
+                    } else {
+                        cout << "ID buku tidak valid." << endl;
+                    }
+                } else {
+                    cout << "Daftar buku kosong." << endl;
+                }
+                break;
 
 
